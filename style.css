@@ -60,8 +60,11 @@ hr {
 }
 
 body {
-  color: #5c7470;
-  width: 100%;
+  background-image: url(./image/background.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  color: #ffffff;
+  width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -126,7 +129,7 @@ p {
   display: grid;
   place-items: center;
   padding: 32px;
-  background-color: #B1CFC8;
+  background-color: #000000;
   transform: rotateY(180deg);
 }
 .flip-card:hover .flip-card-inner {

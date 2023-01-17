@@ -71,34 +71,49 @@ fetch(url2)
     //console.log(data)
     data.forEach((element) => {
         //console.log(element);
-        const div = document.createElement("div")
-        div.className = 'flip-card'
+        const card = document.createElement("div");
+        card.className = 'flip-card';
 
-        div.innerHTML = `<div class="flip-card-inner">
-        <div class="flip-card-front" style="background-image: url('${element.imagen}');">
+        const inner = document.createElement("div");
+        inner.className = 'flip-card-inner';
 
-        </div>
-        <div class="flip-card-back">
-            <h4>${element.personaje}</h4>
-            <h5>${element.casaDeHogwarts}</h5>
-        </div>`
-        ;
+        const front = document.createElement("div");
+        front.className = 'flip-card-front';
+        front.style.backgroundImage = `url(${element.imagen})`;
 
-        DOMtoprint.appendChild(div);
+        const back = document.createElement("div");
+        back.className = 'flip-card-back';
+        back.innerHTML = `<h4>${element.personaje}</h4>`;
+        
+        
+        //<h4>${element.personaje}</h4>
+        //<h5>${element.casaDeHogwarts}</h5>
+        
+        if(element.casaDeHogwarts == 'Gryffindor'){
+          back.style.backgroundImage = "url('./image/Gryfindor.gif')";
+          back.style.backgroundSize = '100% 100%'
+          back.style.backgroundRepeat = 'no-repeat'
+        }
+        if(element.casaDeHogwarts == 'Slytherin'){
+          back.style.backgroundImage = "url('./image/Slytherin.gif')";
+          back.style.backgroundSize = '100% 100%'
+          back.style.backgroundRepeat = 'no-repeat'
+        }
+        if(element.casaDeHogwarts == 'Ravenclaw'){
+          back.style.backgroundImage = "url('./image/ravenclaw.gif')";
+          back.style.backgroundSize = '100% 100%'
+          back.style.backgroundRepeat = 'no-repeat'
+        }
+
+        card.appendChild(inner)
+        inner.appendChild(front)
+        inner.appendChild(back)
+
+        DOMtoprint.appendChild(card);
     });
 
     
   });
 
-//   function desplegarDatos(item){
 
-    
-        
-//     console.info(item)
-//     DOMtoprint2.innerHTML = `
-    
-    
-//     ${item.personaje}`;
-    
-// }
   
